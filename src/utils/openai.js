@@ -1,8 +1,8 @@
 import { OpenAI } from "openai";
 
 const openai = new OpenAI({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY, // Use environment variable
-  baseURL: import.meta.env.VITE_OPENAI_BASE_URL, // Secure API base URL
+  apiKey: import.meta.env.VITE_OPENAI_API_KEY, // Ensure this is loaded correctly
+  baseURL: import.meta.env.VITE_OPENAI_BASE_URL,
   dangerouslyAllowBrowser: true, // Use server-side in production
 });
 
@@ -32,7 +32,7 @@ export const getPrediction = async (
     throw new Error("Medication must be a string if provided");
   }
 
-  const prompt = `Predict the pain flare-up for a ${parsedAge}-year-old with ${category.trim()} symptoms. Problem description: ${probDescrip.trim()}. Medication: ${
+  const prompt = `Predict the health sum-up for a ${parsedAge}-year-old with ${category.trim()} symptoms. Problem description: ${probDescrip.trim()}. Medication: ${
     medication?.trim() || "None"
   }. Provide a short, simple explanation.`;
 
